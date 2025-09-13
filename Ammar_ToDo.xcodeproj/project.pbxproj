@@ -17,6 +17,7 @@
 		04926A1B29FE477E004F72B1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A1A29FE477E004F72B1 /* TableViewController.m */; };
 		04926A2729FE5C9E004F72B1 /* MyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A2629FE5C9E004F72B1 /* MyTask.m */; };
 		04926A2A29FE92D7004F72B1 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A2929FE92D7004F72B1 /* DetailsViewController.m */; };
+		E0C0B98F2E7578B400A45B79 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C0B98E2E7578B400A45B79 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		04926A2629FE5C9E004F72B1 /* MyTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTask.m; sourceTree = "<group>"; };
 		04926A2829FE92D7004F72B1 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		04926A2929FE92D7004F72B1 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		E0C0B98E2E7578B400A45B79 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +73,20 @@
 		049269FF29FE45A0004F72B1 /* Ammar_ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				04926A0029FE45A0004F72B1 /* AppDelegate.h */,
-				04926A0129FE45A0004F72B1 /* AppDelegate.m */,
-				04926A0329FE45A0004F72B1 /* SceneDelegate.h */,
-				04926A0429FE45A0004F72B1 /* SceneDelegate.m */,
+				04926A1129FE45A1004F72B1 /* Info.plist */,
+				04926A0E29FE45A1004F72B1 /* LaunchScreen.storyboard */,
+				E0C0B98B2E75782500A45B79 /* Modules */,
+				E0C0B98C2E75785600A45B79 /* AppFiles */,
+				E0C0B98D2E75788400A45B79 /* Catalog */,
+			);
+			path = Ammar_ToDo;
+			sourceTree = "<group>";
+		};
+		E0C0B98B2E75782500A45B79 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
 				04926A0629FE45A0004F72B1 /* ViewController.h */,
 				04926A0729FE45A0004F72B1 /* ViewController.m */,
-				04926A0929FE45A0004F72B1 /* Main.storyboard */,
-				04926A0C29FE45A1004F72B1 /* Assets.xcassets */,
-				04926A0E29FE45A1004F72B1 /* LaunchScreen.storyboard */,
-				04926A1129FE45A1004F72B1 /* Info.plist */,
-				04926A1229FE45A1004F72B1 /* main.m */,
 				04926A1929FE477D004F72B1 /* TableViewController.h */,
 				04926A1A29FE477E004F72B1 /* TableViewController.m */,
 				04926A2529FE5C9E004F72B1 /* MyTask.h */,
@@ -90,7 +95,53 @@
 				04926A2929FE92D7004F72B1 /* DetailsViewController.m */,
 				0442774D29FED433005A5057 /* HomeDeleget.h */,
 			);
-			path = Ammar_ToDo;
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E0C0B98C2E75785600A45B79 /* AppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E0C0B9922E75790100A45B79 /* Main */,
+				E0C0B9902E7578D100A45B79 /* AppDelegate */,
+				E0C0B9912E7578DC00A45B79 /* SceneDelegate */,
+			);
+			path = AppFiles;
+			sourceTree = "<group>";
+		};
+		E0C0B98D2E75788400A45B79 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				04926A0C29FE45A1004F72B1 /* Assets.xcassets */,
+				E0C0B98E2E7578B400A45B79 /* Colors.xcassets */,
+			);
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+		E0C0B9902E7578D100A45B79 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				04926A0029FE45A0004F72B1 /* AppDelegate.h */,
+				04926A0129FE45A0004F72B1 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E0C0B9912E7578DC00A45B79 /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				04926A0329FE45A0004F72B1 /* SceneDelegate.h */,
+				04926A0429FE45A0004F72B1 /* SceneDelegate.m */,
+			);
+			path = SceneDelegate;
+			sourceTree = "<group>";
+		};
+		E0C0B9922E75790100A45B79 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				04926A1229FE45A1004F72B1 /* main.m */,
+				04926A0929FE45A0004F72B1 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04926A1029FE45A1004F72B1 /* LaunchScreen.storyboard in Resources */,
+				E0C0B98F2E7578B400A45B79 /* Colors.xcassets in Resources */,
 				04926A0D29FE45A1004F72B1 /* Assets.xcassets in Resources */,
 				04926A0B29FE45A0004F72B1 /* Main.storyboard in Resources */,
 			);
