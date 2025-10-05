@@ -13,16 +13,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TaskStatus i =[_mytask priority];
-    if (i== TaskStatusDone)
-        _image.image=[UIImage imageNamed:@"done"];
-    else if(i==TaskStatusToDo)
-        _image.image=[UIImage imageNamed:@"toDo"];
-    else
-        _image.image=[UIImage imageNamed:@"inProgress"];
+    _image.image = [_mytask getStatusImage];
     
-    _name.text=_mytask.name;
-    _desc.text=_mytask.taskDescription;
+    _name.text = _mytask.name;
+    _desc.text = _mytask.taskDescription;
     NSString *myString = [NSString stringWithFormat:@"%ld", (long)_mytask.priority];
     _priority.text=myString;
     

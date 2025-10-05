@@ -17,11 +17,11 @@
 		04926A1B29FE477E004F72B1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A1A29FE477E004F72B1 /* TableViewController.m */; };
 		04926A2729FE5C9E004F72B1 /* MyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A2629FE5C9E004F72B1 /* MyTask.m */; };
 		04926A2A29FE92D7004F72B1 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04926A2929FE92D7004F72B1 /* DetailsViewController.m */; };
-		E0C0B98F2E7578B400A45B79 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C0B98E2E7578B400A45B79 /* Colors.xcassets */; };
+		E0D4417F2E905A9000602D61 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D4417E2E905A9000602D61 /* Color.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0442774D29FED433005A5057 /* HomeDeleget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDeleget.h; sourceTree = "<group>"; };
+		0442774D29FED433005A5057 /* HomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDelegate.h; sourceTree = "<group>"; };
 		049269FD29FE45A0004F72B1 /* Ammar_ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ammar_ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04926A0029FE45A0004F72B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04926A0129FE45A0004F72B1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		04926A2629FE5C9E004F72B1 /* MyTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTask.m; sourceTree = "<group>"; };
 		04926A2829FE92D7004F72B1 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		04926A2929FE92D7004F72B1 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
-		E0C0B98E2E7578B400A45B79 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E0D4417E2E905A9000602D61 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				04926A2629FE5C9E004F72B1 /* MyTask.m */,
 				04926A2829FE92D7004F72B1 /* DetailsViewController.h */,
 				04926A2929FE92D7004F72B1 /* DetailsViewController.m */,
-				0442774D29FED433005A5057 /* HomeDeleget.h */,
+				0442774D29FED433005A5057 /* HomeDelegate.h */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				04926A0C29FE45A1004F72B1 /* Assets.xcassets */,
-				E0C0B98E2E7578B400A45B79 /* Colors.xcassets */,
+				E0D4417E2E905A9000602D61 /* Color.xcassets */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -175,6 +175,7 @@
 				TargetAttributes = {
 					049269FC29FE45A0004F72B1 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1620;
 					};
 				};
 			};
@@ -202,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04926A1029FE45A1004F72B1 /* LaunchScreen.storyboard in Resources */,
-				E0C0B98F2E7578B400A45B79 /* Colors.xcassets in Resources */,
+				E0D4417F2E905A9000602D61 /* Color.xcassets in Resources */,
 				04926A0D29FE45A1004F72B1 /* Assets.xcassets in Resources */,
 				04926A0B29FE45A0004F72B1 /* Main.storyboard in Resources */,
 			);
@@ -362,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 88XKMF6G3A;
@@ -380,6 +382,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ammar-ToDo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -389,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 88XKMF6G3A;
@@ -407,6 +412,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Ammar-ToDo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

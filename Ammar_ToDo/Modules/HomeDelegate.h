@@ -1,5 +1,5 @@
 //
-//  HomeDeleget.h
+//  HomeDelegate.h
 //  Ammar_ToDo
 //
 //  Created by ammar on 30/04/2023.
@@ -9,8 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol HomeDeleget <NSObject>
--(void) relaod;
+@protocol HomeDelegate <NSObject>
+-(void) reload;
 @end
 
 NS_ASSUME_NONNULL_END

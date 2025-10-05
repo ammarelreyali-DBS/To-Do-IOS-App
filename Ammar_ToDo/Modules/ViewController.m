@@ -12,9 +12,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mytask=[MyTask new];
-    _mytask.priority=TaskPriorityHigh;
-    _mytask.status=TaskStatusToDo;
+    _mytask = [MyTask new];
+    _mytask.priority = taskPriorityHigh;
+    _mytask.status = taskStatusToDo;
     self.navigationController.delegate = self;
     
     self.statusPicker.dataSource = self;
@@ -38,8 +38,8 @@
         _erorr.text=@"pleas enter name and desc";
     else
     {
-        _mytask.name=_nameTxt.text;
-        _mytask.taskDescription=_descTxt.text;
+        _mytask.name = _nameTxt.text;
+        _mytask.taskDescription = _descTxt.text;
         NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         
         // Create the path to the plist file
@@ -63,7 +63,7 @@
         
         if (success) {
             NSLog(@"Tasks saved successfully");
-            [_deleget relaod];
+            [_delegate reload];
             [self.navigationController popViewControllerAnimated:true];
         } else {
             NSLog(@"Failed to save tasks");
@@ -133,23 +133,29 @@
     if(component){
         switch (row) {
             case 0:
-                _mytask.status=TaskStatusToDo;
+                _mytask.status = taskStatusToDo;
+                break;
             case 1:
-                _mytask.status=TaskStatusInProgress;
+                _mytask.status = taskStatusInProgress;
+                break;
+
             default:
-                _mytask.status=TaskStatusDone;
+                _mytask.status = taskStatusDone;
                 
         }
     }
     else{
         switch (row) {
             case 0:
-                _mytask.priority=TaskPriorityHigh;
+                _mytask.priority = taskPriorityHigh;
+                break;
+
             case 1:
-                _mytask.priority=TaskPriorityMedium;
-                
+                _mytask.priority = taskPriorityMedium;
+                break;
+
             default:
-                _mytask.priority=TaskPriorityLow;
+                _mytask.priority = taskPriorityLow;
                 
                 
         }

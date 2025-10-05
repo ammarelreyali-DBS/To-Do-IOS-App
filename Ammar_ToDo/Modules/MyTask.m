@@ -36,4 +36,18 @@
     [encoder encodeObject:self.creationDate forKey:@"creationDate"];
 }
 
+- (UIImage *)getStatusImage {
+    switch (self.status) {
+        case taskStatusToDo:
+            return [UIImage imageNamed:@"ic_done"];
+            break;
+        case taskStatusInProgress:
+            return [UIImage imageNamed:@"ic_in_progress"];
+            break;
+        case taskStatusDone:
+            return [UIImage imageNamed:@"ic_to_do"];
+            break;
+    }
+}
+
 @end

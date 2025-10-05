@@ -52,7 +52,7 @@
 
 - (void)addButtonTapped:(id)sender {
     ViewController *myViewController =[self.storyboard instantiateViewControllerWithIdentifier:@"AddTask"];
-    myViewController.deleget=self;
+    myViewController.delegate=self;
     [self.navigationController pushViewController:myViewController animated:YES];
 }
 
@@ -66,23 +66,22 @@
             _isPriority=false;
             
             break;
-        case 1:{
-            predicate = [NSPredicate predicateWithFormat:@"status == %d", TaskStatusToDo];
-            _arr = [_dataSource filteredArrayUsingPredicate:predicate] ;
+        case 1:
+            predicate = [NSPredicate predicateWithFormat:@"status == %d", taskStatusToDo];
+            _arr = [[_dataSource filteredArrayUsingPredicate:predicate] mutableCopy];
             _isPriority=false;
             
-        }
             break;
             
         case 2:
-            predicate = [NSPredicate predicateWithFormat:@"status == %d", TaskStatusInProgress];
-            _arr = [_dataSource filteredArrayUsingPredicate:predicate] ;
+            predicate = [NSPredicate predicateWithFormat:@"status == %d", taskStatusInProgress];
+            _arr = [[_dataSource filteredArrayUsingPredicate:predicate] mutableCopy];
             _isPriority=false;
             
             break;
         case 3:
-            predicate = [NSPredicate predicateWithFormat:@"status == %d", TaskStatusDone];
-            _arr = [_dataSource filteredArrayUsingPredicate:predicate] ;
+            predicate = [NSPredicate predicateWithFormat:@"status == %d", taskStatusDone];
+            _arr = [[_dataSource filteredArrayUsingPredicate:predicate] mutableCopy];
             _isPriority=false;
             
             break;
@@ -125,11 +124,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(_isPriority){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityLow];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityLow];
         NSArray *lowArray = [_dataSource filteredArrayUsingPredicate:predicate];
-        predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityMedium];
+        predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityMedium];
         NSArray *mediumArray = [_dataSource filteredArrayUsingPredicate:predicate];
-        predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityHigh];
+        predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityHigh];
         NSArray *highArray = [_dataSource filteredArrayUsingPredicate:predicate];
         switch (section) {
             case 0:
@@ -154,69 +153,36 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     if(_isPriority){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityLow];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityLow];
         NSArray<MyTask *> *lowArray = [_dataSource filteredArrayUsingPredicate:predicate];
-        predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityMedium];
+        predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityMedium];
         NSArray<MyTask *> *mediumArray = [_dataSource filteredArrayUsingPredicate:predicate];
-        predicate = [NSPredicate predicateWithFormat:@"priority == %d", TaskPriorityHigh];
+        predicate = [NSPredicate predicateWithFormat:@"priority == %d", taskPriorityHigh];
         NSArray<MyTask *> *highArray = [_dataSource filteredArrayUsingPredicate:predicate];
         
         switch (indexPath.section) {
             case 0:{
-                cell.textLabel.text= [[lowArray objectAtIndex:indexPath.row] name];
-                cell.detailTextLabel.text =[[lowArray objectAtIndex:indexPath.row] taskDescription];
-                TaskStatus i =[[lowArray objectAtIndex:indexPath.row] priority];
-                if (i== TaskStatusDone)
-                    cell.imageView.image=[UIImage imageNamed:@"done"];
-                else if(i==TaskStatusToDo)
-                    cell.imageView.image=[UIImage imageNamed:@"toDo"];
-                else
-                    cell.imageView.image=[UIImage imageNamed:@"inProgress"];
-                
+                MyTask *task = [lowArray objectAtIndex:indexPath.row];
+                [self setCellData:task cell: cell];
             }
-                
                 break;
             case 1:{
-                cell.textLabel.text= [[mediumArray objectAtIndex:indexPath.row] name];
-                cell.detailTextLabel.text =[[mediumArray objectAtIndex:indexPath.row] taskDescription];
-                TaskStatus i =[[mediumArray objectAtIndex:indexPath.row] priority];
-                if (i== TaskStatusDone)
-                    cell.imageView.image=[UIImage imageNamed:@"done"];
-                else if(i==TaskStatusToDo)
-                    cell.imageView.image=[UIImage imageNamed:@"toDo"];
-                else
-                    cell.imageView.image=[UIImage imageNamed:@"inProgress"];
-                
+                MyTask *task = [mediumArray objectAtIndex:indexPath.row];
+                [self setCellData:task cell: cell];
             }
-                
                 break;
                 
             default:{
-                cell.textLabel.text= [[highArray objectAtIndex:indexPath.row] name];
-                cell.detailTextLabel.text =[[highArray objectAtIndex:indexPath.row] taskDescription];
-                TaskStatus i =[[highArray objectAtIndex:indexPath.row] priority];
-                if (i== TaskStatusDone)
-                    cell.imageView.image=[UIImage imageNamed:@"done"];
-                else if(i==TaskStatusToDo)
-                    cell.imageView.image=[UIImage imageNamed:@"toDo"];
-                else
-                    cell.imageView.image=[UIImage imageNamed:@"inProgress"];
-                
+                MyTask *task = [highArray objectAtIndex:indexPath.row];
+                [self setCellData:task cell: cell];
             }
                 
         }
     }
     
-    else{
-        cell.textLabel.text= [[_arr objectAtIndex:indexPath.row] name];
-        cell.detailTextLabel.text =[[_arr  objectAtIndex:indexPath.row] taskDescription];
-        TaskStatus i =[[_arr objectAtIndex:indexPath.row] priority];
-        if (i== TaskStatusDone)
-            cell.imageView.image=[UIImage imageNamed:@"done"];
-        else if(i==TaskStatusToDo)
-            cell.imageView.image=[UIImage imageNamed:@"toDo"];
-        else
-            cell.imageView.image=[UIImage imageNamed:@"inProgress"];
+    else {
+        MyTask *task = [_arr objectAtIndex:indexPath.row];
+        [self setCellData:task cell: cell];
     }
     
     
@@ -232,7 +198,7 @@
         // Load the existing tasks (if any)
         
         
-        NSMutableArray<MyTask *> *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:plistPath];
+        NSMutableArray<MyTask *> *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile: plistPath];
         
         // If there are no existing tasks, create a new array
         if (!tasks) {
@@ -249,7 +215,7 @@
         // Save the tasks to the plist file
         BOOL success = [NSKeyedArchiver archiveRootObject:tasks toFile:plistPath];
         
-        [_arr removeObjectAtIndex:indexPath.row];
+        [_arr removeObjectAtIndex: indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -269,24 +235,30 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailsViewController *myViewController =[self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    DetailsViewController *myViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
     myViewController.mytask= [_arr objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:myViewController animated:YES];
 }
 
-- (void)relaod{
-    printf("\nlksjdl");
+- (void)reload{
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 
     NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"tasks.plist"];
     _dataSource = [NSKeyedUnarchiver unarchiveObjectWithFile:plistPath];
     if (!_dataSource) {
-        _dataSource=[NSMutableArray new];
+        _dataSource = [NSMutableArray new];
     }
-    _isPriority=false;
+    _isPriority = false;
     
     _arr = _dataSource;
     [self.tableView reloadData];
+    
+
+}
+- (void)setCellData:(MyTask*)item cell:(UITableViewCell *)cell {
+    cell.textLabel.text = [item name];
+    cell.detailTextLabel.text = [item taskDescription];
+    cell.imageView.image = [item getStatusImage];
 }
 
 /*

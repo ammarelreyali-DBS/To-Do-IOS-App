@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MyTask.h"
-#import "HomeDeleget.h"
+#import "HomeDelegate.h"
 
 @interface ViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate,UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPickerView *statusPicker;
@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *descTxt;
 @property MyTask* mytask;
 @property (nonatomic, strong) UIBarButtonItem *saveButton;
-@property id<HomeDeleget> deleget;
+@property id<HomeDelegate> delegate;
 
 @end
 

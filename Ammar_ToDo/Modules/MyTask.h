@@ -8,16 +8,17 @@
 // MyTask.h
 
 #import <Foundation/Foundation.h>
+#import "UIKit/UIImage.h"
 typedef NS_ENUM(NSInteger, TaskPriority) {
-    TaskPriorityLow,
-    TaskPriorityMedium,
-    TaskPriorityHigh
+    taskPriorityLow,
+    taskPriorityMedium,
+    taskPriorityHigh
 };
 
 typedef NS_ENUM(NSInteger, TaskStatus) {
-    TaskStatusToDo,
-    TaskStatusInProgress,
-    TaskStatusDone
+    taskStatusToDo,
+    taskStatusInProgress,
+    taskStatusDone
 };
 
 @interface MyTask :  NSObject <NSCoding>
@@ -28,6 +29,6 @@ typedef NS_ENUM(NSInteger, TaskStatus) {
 @property (nonatomic, assign) TaskStatus status;
 @property (nonatomic, strong) NSDate *creationDate;
 
-
+- (UIImage *) getStatusImage;
 @end
 
